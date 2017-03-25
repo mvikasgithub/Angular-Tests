@@ -5,8 +5,11 @@ angular.
 
             $routeProvider.
             when('/message', {
-                template: <basic-connection></basic-connection>
+                template: '<basic-connection></basic-connection>'
             }).
+            when('/greeting',{
+                template: '<greeting-test></greeting-test>'
+            }).            
             otherwise('/message');
 
     }
