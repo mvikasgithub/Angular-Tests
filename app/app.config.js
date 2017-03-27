@@ -10,6 +10,9 @@ angular.
             when('/greeting',{
                 template: '<greeting-test></greeting-test>'
             }).            
+            when('/register', {
+                template: '<register-user></register-user>'
+            }).
             otherwise('/message');
 
     }

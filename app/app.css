@@ -1,0 +1,15 @@
+.form-group{
+	margin-bottom: 15px;
+    padding-top: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}

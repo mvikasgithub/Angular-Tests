@@ -4,5 +4,6 @@
 angular.module('ellianzFE', [
   'ngRoute',
   'basicConnection',
-  'greetingTest'
+  'greetingTest',
+  'registerUser'
 ]);

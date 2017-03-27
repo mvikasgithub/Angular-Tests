@@ -5,9 +5,9 @@ angular.
     module('basicConnection').
         component('basicConnection', {
             templateUrl: 'basic-connection/basic-connection.template.html',
-            controller: [ function BasicConnectionController() {
+            controller:  function BasicConnectionController() {
                 this.message = "Hello World";
 
-            }]
+            }
 
         });
