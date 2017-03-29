@@ -15,7 +15,7 @@ angular.
                 //console.log(self.user);
                 //console.log(self.confirmPassword);
 
-                var deferred = $q.deferred;
+                var deferred = $q.defer();
 
                 if (self.user.password != self.confirmPassword) {
                     self.message = "Passwords do not match. Re-enter password";
@@ -29,12 +29,16 @@ angular.
                     function (response) {
                         deferred.resolve(response.data);
                         console.log(response.data);
+                        console.log("inside response");
                     },
                     function (error) {
-                        console.log(error);
+                        //console.log(error);
+                        console.log("inside error");
                         deferred.reject(error);
                     }
                 );
+
+                return deferred.promise;
 
             }
 
