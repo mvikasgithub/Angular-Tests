@@ -1,7 +1,10 @@
 <div class="container">
 
 
-    <div class="alert alert-success" ng-if="$ctrl.message!=''">
+    <div ng-if="$ctrl.message === 'Registration Successful'" class="alert alert-success" >
+        {{$ctrl.message}}
+    </div>
+    <div ng-if="$ctrl.message === 'Passwords do not match. Re-enter password'" class="alert alert-danger" >
         {{$ctrl.message}}
     </div>
 
