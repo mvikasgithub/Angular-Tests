@@ -5,6 +5,9 @@
         {{$ctrl.message}}
     </div>
     <div ng-if="$ctrl.message === 'Passwords do not match. Re-enter password'" class="alert alert-danger" >
+        {{$ctrl.message}}  
+    </div>
+    <div ng-if="$ctrl.message === 'Duplicate Username (email id). Try again'" class="alert alert-danger" >
         {{$ctrl.message}}
     </div>
 

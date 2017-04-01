@@ -13,7 +13,10 @@ angular.
             when('/register', {
                 template: '<register-user></register-user>'
             }).
-            otherwise('/message');
+            when('/login', {
+                template:'<login-user></login-user>'
+            }).
+            otherwise('/login');
 
     }
     ]);

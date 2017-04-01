@@ -4,7 +4,7 @@ angular.
     module('registerUser').
     component('registerUser', {
         templateUrl: 'register-user/register-user.template.html',
-        controller: function RegisterUserController($http, $q) {
+        controller: function RegisterUserController($http, $q, $window) {
 
             var self = this;
             self.user = new Object();
@@ -30,10 +30,18 @@ angular.
                         deferred.resolve(response.data);
                         console.log(response.data);
                         console.log("inside response");
+                        $window.location.href = '/#!/login';
                     },
                     function (error) {
-                        //console.log(error);
                         console.log("inside error");
+                        console.log(error.data.responseCode);
+                        console.log(error.data.responseMessage);
+
+                        if (error.data.responseCode == '500')
+                        {
+                            self.message = "Duplicate Username (email id). Try again"                        
+                            $window.scrollTo(0, 0); // scroll to top to display the message
+                        }
                         deferred.reject(error);
                     }
                 );
