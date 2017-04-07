@@ -4,7 +4,10 @@
         {{$ctrl.message}}  
     </div>
     <div ng-if="$ctrl.message === 'Wrong Password. Try Again !'" class="alert alert-danger" >
-        {{$ctrl.message}}
+        {{$ctrl.message}} 
+    </div>    
+    <div ng-if="$ctrl.message === 'User Not Authenticated By Admin'" class="alert alert-danger" >
+        {{$ctrl.message}} 
     </div>    
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -18,7 +21,7 @@
                         <input type="password" class="form-control" name="passwor" ng-model="$ctrl.user.password" placeholder="Password" required>
                         <!-- show an error if this isn't filled in -->
                             <p ng-show="signin.password.$touched && signin.password.$error">Email is invalid</p>
-                        <input type="button" ng-click="$ctrl.login(user)" value="Sign in" class="btn btn-primary btn-lg btn-block login-button"
+                        <input type="button" ng-click="$ctrl.login(user)" value="Sign in" class="btn btn-primary btn-lg btn-block login-button">
                         <label class="checkbox pull-left">
                             <input type="checkbox" value="remember-me">Remember me
                         </label>

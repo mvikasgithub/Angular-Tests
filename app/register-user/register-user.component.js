@@ -39,7 +39,7 @@ angular.
 
                         if (error.data.responseCode == '500')
                         {
-                            self.message = "Duplicate Username (email id). Try again"                        
+                            self.message = "Duplicate Username (email id). Try again";   
                             $window.scrollTo(0, 0); // scroll to top to display the message
                         }
                         deferred.reject(error);

@@ -3,44 +3,44 @@
 //Register 'loginUser' component along with its associated controller and template
 angular.
     module('loginUser').
-        component('loginUser', {
-            templateUrl: 'login-user/login-user.template.html',
-            controller:  function LoginUserController($http, $q, $window) {
+    component('loginUser', {
+        templateUrl: 'login-user/login-user.template.html',
+        controller: function LoginUserController($http, $q, $window, AuthenticationService) {
             var self = this;
             self.user = new Object();
 
-            self.login = function login(user){
+            // method for user login
+            self.login = function (user) {
 
-                var deferred = $q.defer();
+                console.log("inside login-user.component login() function");
 
-                $http.post('http://localhost:8080/onlinecollaboration/user/login', self.user).then(
-                    function (response) {
-                        deferred.resolve(response.data);
-                        console.log(response.data);
-                        console.log("inside response");
- 
+
+                AuthenticationService.login(self.user).then(
+                    function (user) { // success function
+                        AuthenticationFactory.setUserIsAuthenticated(true);
+                        AuthenticationFactory.setRole(user.role);
+                        $rootScope.authenticated = true;
+                        $rootScope.message = "Welcome" + user.username;
+                        AuthenticationFactory.saveUser(user);
+
+                        console.log("After invoking AuthenticationService.login");
+                        console.log(user.fname);
+
+
                     },
                     function (error) {
-                        console.log("inside error");
-                        console.log(error.data.responseCode);
-                        console.log(error.data.responseMessage);
-
-                        if (error.data.responseCode == '500')
-                        {
-                            self.message = "Username does not exist"                        
-                            $window.scrollTo(0, 0); // scroll to top to display the message
-                        }
-                        if(error.data.responseCode == '501')
-                        {
-                            self.message = "Wrong Password. Try Again !"                        
-                            $window.scrollTo(0, 0); // scroll to top to display the message                            
-                        }
-                        deferred.reject(error);
-   
+                        console.log("inside error in login-user.component->login()");
+                        console.log(error);
+                        self.user = error.data;
+                        console.log(self.user.fname);
+                        self.message = self.user.fname;
+                        $window.scrollTo(0, 0); // scroll to top to display the message
+                        
                     }
+
                 );
-            }
 
             }
+        }
+    });
 
-        });
