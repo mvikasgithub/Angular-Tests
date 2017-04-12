@@ -8,7 +8,7 @@ angular.
 
             var self = this;
             self.user = new Object();
-            self.user.role = 'student';
+            self.user.role = 'STUDENT';
 
 
             self.register = function register(user) {
