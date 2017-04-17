@@ -5,7 +5,7 @@ angular.
     module('loginUser').
     component('loginUser', {
         templateUrl: 'login-user/login-user.template.html',
-        controller: function LoginUserController($http, $q, $window, AuthenticationService) {
+        controller: function LoginUserController($http, $q, $window, $rootScope, $location, AuthenticationService) {
             var self = this;
             self.user = new Object();
 
@@ -17,15 +17,15 @@ angular.
 
                 AuthenticationService.login(self.user).then(
                     function (user) { // success function
-                        AuthenticationFactory.setUserIsAuthenticated(true);
-                        AuthenticationFactory.setRole(user.role);
+                        AuthenticationService.setUserIsAuthenticated(true);
+                        AuthenticationService.setRole(user.role);
                         $rootScope.authenticated = true;
                         $rootScope.message = "Welcome" + user.username;
-                        AuthenticationFactory.saveUser(user);
+                        AuthenticationService.saveUser(user);
 
                         console.log("After invoking AuthenticationService.login");
                         console.log(user.fname);
-
+                        window.location = "/#!/home";
 
                     },
                     function (error) {

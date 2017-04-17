@@ -16,18 +16,8 @@
     <div class="row">
         <div class="pgleft col-xs-3">
             <p>
-                <input type="button" ng-click="$ctrl.friendsClicked()" value="Friends" class="btn btn-primary btn-lg btn-block login-button">
-            </P>
-            <p>
-                <input type="button" ng-click="$ctrl.allusersClicked()" value="All Users" class="btn btn-primary btn-lg btn-block login-button">
+                <input type="button" ng-click="$ctrl.homeClicked()" value="home" class="btn btn-primary btn-lg btn-block login-button">
             </p>
-            <p>
-                <input type="button" ng-click="$ctrl.forumsClicked()" value="Forums" class="btn btn-primary btn-lg btn-block login-button">
-            </p>
-            <p>
-                <input type="button" ng-click="$ctrl.blogsClicked()" value="Blogs" class="btn btn-primary btn-lg btn-block login-button">
-            </p>
-
         </div>
 
         <div class="pgcenter col-xs-6">
@@ -35,37 +25,42 @@
                 <table class="table table-bordered">
                     <tr class="well">
                         <td class="tdRight" colspan="4">
-                            <div ng-if="$ctrl.menuoption === 1"> <a href="#" title="Total Friends">
-                                <b>Total Friends {{$ctrl.users.length}}</b>
-                                </a>
-                            </div>
-                            <div ng-if="$ctrl.menuoption === 2"> <a href="#" title="Total Users">
+                            <a href="#" title="Total Users">
                                 <b>Total Users {{$ctrl.users.length}}</b>
-                                </a>
-                            </div>
+                            </a>
                         </td>
                     </tr>
                     <tr ng-repeat="user in $ctrl.users ">
                         <td>
                             <a href="#"><b>{{user.fname}} {{user.sname}}</b></a>
                         </td>
-                        <div ng-if="$ctrl.menuoption === 2"> <td class="tdRight">
-                            <a href="#"><b> Add as friend </b></a>
-                            </td>
-                        </div>
+                        <td class="tdRight">
+                            <div ng-switch="user.address">
+                                <div ng-switch-when="Add as friend">
+                                    <a href="/#!/allusers" ng-click="$ctrl.addAsFriendClicked(user)"><b> {{user.address}} </b></a>
+                                </div>
+                                <div ng-switch-when="ACCEPT FRIEND REQUEST">
+                                    <a href="/#!/allusers" ng-click="$ctrl.acceptFriendClicked(user)"><b> {{user.address}} </b></a>
+                                </div>
+                                <div ng-switch-default>
+                                    <b> {{user.address}} </b>
+                                </div>
+                            </div>
+
+                            <!--<div ng-if="user.address === 'Add as friend'"> <a href="/#!/allusers" ng-click="$ctrl.addAsFriendClicked(user)"><b> {{user.address}} </b></a>
+                            </div>
+                            <div ng-else-if="user.address === 'ACCEPT FRIEND REQUEST'"> <a href="/#!/allusers" ng-click="$ctrl.acceptFriendClicked(user)"><b> {{user.address}} </b></a>
+                            </div>
+                            <div ng-else> <b> {{user.address}} </b>
+                            </div>-->
+                        </td>
                     </tr>
                     <tr class="well">
                         <td class="tdRight" colspan="4">
-                            <div ng-if="$ctrl.menuoption === 1" <a href="#" title="Total Friends">
-                                <i class="icon-shopping-cart" />
-                                <b>Total Friends {{$ctrl.users.length}}</b>
-                                </a>
-                            </div>
-                            <div ng-if="$ctrl.menuoption === 2" <a href="#" title="Total Users">
+                            <a href="#" title="Total Users">
                                 <i class="icon-shopping-cart" />
                                 <b>Total Users {{$ctrl.users.length}}</b>
-                                </a>
-                            </div>
+                            </a>
                         </td>
                     </tr>
                 </table>

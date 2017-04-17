@@ -35,6 +35,7 @@ authenticate.service('AuthenticationService', ['$http', '$q', '$rootScope', '$co
                 function (response) {
                     console.log('success');
                     deferred.resolve(response.data);
+                    console.log(response.data);
                 }, function (error) {
                     console.log("inside error in authenticate.module->login()");
                     //console.log(error);

@@ -8,5 +8,8 @@ angular.module('ellianzFE', [
   'greetingTest',
   'registerUser',
   'loginUser',
-  'AuthenticationModule'
+  'AuthenticationModule',
+  'userHome',
+  'myFriends',
+  'allUsers'
 ]);

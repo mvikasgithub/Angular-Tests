@@ -16,6 +16,15 @@ angular.
                 requireLogin: false,
                 roles: ['GUEST']
             }).
+            when('/home', {
+                template: '<user-home></user-home>',
+            }).
+           when('/friends', {
+                template: '<my-friends></my-friends>',
+            }).            
+           when('/allusers', {
+                template: '<all-users></all-users>',
+            }).            
             when('/login', {
                 template:'<login-user></login-user>',
                 requireLogin: false,

@@ -1,0 +1,40 @@
+<div class="fullpage"> {{$ctrl.message}}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="#!/login">
+                        <img src="img/niit.png" height="60" width="60" alt="logo" />
+                    </a>
+                    Online Collabiration Student Forum
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pgleft col-xs-3">
+        </div>
+
+        <div class="pgcenter col-xs-6">
+            <p>
+                <input type="button" ng-click="$ctrl.friendsClicked()" value="Friends" class="btn btn-primary btn-lg btn-block login-button">
+            </P>
+            <p>
+                <input type="button" ng-click="$ctrl.allusersClicked()" value="All Users" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+            <p>
+                <input type="button" ng-click="$ctrl.forumsClicked()" value="Forums" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+            <p>
+                <input type="button" ng-click="$ctrl.blogsClicked()" value="Blogs" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+
+        </div>
+
+        <div class="pgright col-xs-3">
+        </div>
+
+    </div>
+</div>
