@@ -8,10 +8,17 @@ angular.
         controller: function UserHomeController($http, AuthenticationService) {
 
             var self = this;
-            this.message = "Hello World from User Home";
-            this.menuoption = 0;
 
-       self.friendsClicked = function friendsClicked() {
+            self.currentuser = new Object();
+
+            self.currentuser = AuthenticationService.loadUserFromCookie();
+            this.message = "Hello World from User Home";
+
+            console.log(self.message);
+            console.log(self.currentuser.role);
+
+
+            self.friendsClicked = function friendsClicked() {
                 self.message = "Friends clicked";
 
                 this.users = [];
@@ -23,8 +30,8 @@ angular.
                 self.currentuser = AuthenticationService.loadUserFromCookie();
                 window.location = "/#!/friends";
             };
-            
-       self.allusersClicked = function allusersClicked() {
+
+            self.allusersClicked = function allusersClicked() {
                 self.message = "Friends clicked";
 
                 this.users = [];
@@ -35,6 +42,24 @@ angular.
 
                 self.currentuser = AuthenticationService.loadUserFromCookie();
                 window.location = "/#!/allusers";
+            };
+
+            self.permissionsClicked = function permissionsClicked() {
+                self.message = "Login Permissions clicked";
+
+                this.users = [];
+                self.menuoption = 3; // Login Permissions
+
+                window.location = "/#!/userauth";
+            };
+
+            self.blogsClicked = function blogsClicked() {
+                self.message = "Blogs clicked";
+
+                this.users = [];
+                self.menuoption = 4; // blogs
+
+                window.location = "/#!/userblog";
             };
 
         }

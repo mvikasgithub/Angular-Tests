@@ -11,5 +11,8 @@ angular.module('ellianzFE', [
   'AuthenticationModule',
   'userHome',
   'myFriends',
-  'allUsers'
+  'allUsers',
+  'userAuth',
+  'userBlog',
+  'blogPermissions'
 ]);

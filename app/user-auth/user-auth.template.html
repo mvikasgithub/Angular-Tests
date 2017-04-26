@@ -1,0 +1,73 @@
+<div class="fullpage"> {{$ctrl.message}}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="#!/login">
+                        <img src="img/niit.png" height="60" width="60" alt="logo" />
+                    </a>
+                    Online Collaboration Student Forum
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pgleft col-xs-3">
+            <p>
+                <input type="button" ng-click="$ctrl.homeClicked()" value="home" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+        </div>
+
+        <div class="pgcenter col-xs-6">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Users Awaiting Authentication">
+                                <b>Total Users Awaiting Authentication: {{$ctrl.users.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="user in $ctrl.users ">
+                        <td>
+                            <a href="#"><b>{{user.fname}} {{user.sname}}</b></a>
+                        </td>
+                        <td class="tdRight">
+                            <a href="/#!/userauth" ng-click="$ctrl.authUserClicked(user)"><b> Authenticate </b></a>
+                        </td>
+
+                    </tr>
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Users Awaiting Authentication">
+                                <i class="icon-shopping-cart" />
+                                <b>Total Users Awaiting Authentication: {{$ctrl.users.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="pgright col-xs-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nam eos, rerum temporibus repellendus dignissimos beatae natus
+            veniam quo, recusandae aspernatur ad ducimus dolore eveniet excepturi rem ea non unde quisquam vitae hic tenetur!
+            Magnam neque officiis rem voluptas! Harum beatae minima commodi, totam nisi sit magni facilis consectetur. Odio
+            facilis officia, voluptates hic quisquam ea eos reprehenderit, culpa tenetur, eveniet neque, repellat possimus
+            aliquid velit enim quod reiciendis ut earum alias perferendis deleniti voluptatem. Praesentium fugiat deserunt
+            vel tempora provident consectetur reprehenderit debitis voluptatibus nulla animi magni sit, quisquam iste dicta
+            dolor. Consequuntur cupiditate, eligendi dignissimos velit temporibus beatae consectetur mollitia, ipsum architecto
+            quam cumque assumenda soluta ab, laborum? Veritatis odio iusto facilis commodi ratione molestias incidunt repudiandae,
+            voluptatum aliquam, adipisci, numquam maiores laboriosam sit vero consequuntur quasi a. Quam ducimus ipsum praesentium,
+            delectus culpa. Laudantium voluptas vel, blanditiis asperiores dicta! Nesciunt repellendus quae optio expedita,
+            quos sequi officia, reprehenderit, voluptatibus fugiat quo autem. Repudiandae nemo accusantium atque quae placeat
+            quas distinctio odio, aspernatur perferendis maxime quia debitis ipsam dolorum accusamus voluptatibus laborum
+            eos architecto hic quod natus necessitatibus repellat! Ducimus autem similique culpa quisquam necessitatibus
+            alias, eveniet ab nemo omnis excepturi! Omnis tempore, deserunt. Praesentium dolorem quos voluptate.
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<div class="fullpage"> {{$ctrl.blogs.length}}
+
+    <div ng-if="$ctrl.message === 'Request for permission submitted'" class="alert alert-success">
+        {{$ctrl.message}}
+    </div>
+       <div ng-if="$ctrl.message === 'Request for permission failed !! Try again'" class="alert alert-danger">
+        {{$ctrl.message}}
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="#!/login">
+                        <img src="img/niit.png" height="60" width="60" alt="logo" />
+                    </a>
+                    Online Collaboration Student Forum
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label>Show Own Blogs:
+                            <input type="checkbox" ng-model="$ctrl.showOwnBlog"
+                            ng-true-value="'YES'" ng-false-value="'NO'">
+                        </label>
+        <div class="pgleft col-xs-3">
+            <p>
+                <input type="button" ng-click="$ctrl.homeClicked()" value="home" class="btn btn-primary btn-lg btn-block login-button">
+                <input type="button" ng-click="$ctrl.blogPermissionsClicked()" value="Blog Permissions" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+        </div>
+
+        <div class="pgcenter col-xs-8">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Blogs">
+                                <b>Total Blogs {{$ctrl.blogs.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <b> Blog Id </b>
+                        </th>
+                        <th>
+                            <b> Author Name </b>
+                        </th>
+                        <th>
+                            <b> Blog Title </b>
+                        </th>
+                        <th>
+                            <b> View Blog </b>
+                        </th>
+                        <th>
+                            <b> Delete Blog </b>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="blog in $ctrl.blogs " ng-show="$ctrl.showOwnBlog" && "blog.userid" === "$currentuser.userid">
+                        <td >
+                            <b>{{blog.blogid}} </b>
+                        </td>
+                        <td>
+                            <b>{{blog.authorfname}} {{blog.authorsname}}</b>
+                        </td>
+                        <td>
+                            <b>{{blog.title}} </b>
+                        </td>
+                        <td>
+                            <input type="button" ng-click="$ctrl.blogViewClicked(blog)" value="View Blog" class="btn btn-primary btn-lg btn-block login-button">
+                        </td>
+                        <td>
+                            <input type="button" ng-click="$ctrl.blogDeleteClicked(blog)" value="Delete Blog" class="btn btn-primary btn-lg btn-block login-button">
+                        </td>
+                    </tr>
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Blogs">
+                                <i class="icon-shopping-cart" />
+                                <b>Total Blogs {{$ctrl.blogs.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div>
+                <div ng-switch="$ctrl.displayblog">
+                    <div ng-switch-when="true">
+                        <p> <b>Blog Content: </b><textarea rows="5" cols="80">{{$ctrl.blogbody}}</textarea> </p>
+                        <div ng-if="$ctrl.blogSeekPermission === 'true'">
+                            <p>
+                                <input type="button" ng-click="$ctrl.blogSeekPermissionClicked()" value="Seek Permission" class="btn btn-primary btn-block login-button">
+                            </p>
+                        </div>
+                        <p>
+                            <input type="button" ng-click="$ctrl.blogDismissClicked()" value="Dismiss" class="btn btn-primary btn-block login-button">
+                        </p>
+
+
+                    </div>
+                    <div ng-switch-when="false">
+                        <label>Add Blog:
+                            <input type="checkbox" ng-model="$ctrl.addBlog"
+                            ng-true-value="'YES'" ng-false-value="'NO'">
+                        </label>
+                        <div ng-if="$ctrl.addBlog === 'YES'">
+                            <p> <b>Blog Title: </b><input type="text" ng-model="$ctrl.blogtitle"></p>
+                            <p> <b>Blog Content: </b><textarea rows="5" cols="80" ng-model="$ctrl.blogbody"></textarea> </p>
+                            <p>
+                                <input type="button" ng-click="$ctrl.blogSubmitClicked()" value="Submit" ng-disabled="$ctrl.blogbody.length < 1" class="btn btn-primary btn-lg btn-block login-button">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

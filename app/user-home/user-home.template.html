@@ -1,4 +1,4 @@
-<div class="fullpage"> {{$ctrl.message}}
+<div class="fullpage"> {{$ctrl.currentuser.role}}
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -30,9 +30,15 @@
             <p>
                 <input type="button" ng-click="$ctrl.blogsClicked()" value="Blogs" class="btn btn-primary btn-lg btn-block login-button">
             </p>
+            <div ng-switch="$ctrl.currentuser.role">
+                <div ng-switch-when="admin">
+                    <p>
+                        <input type="button" ng-click="$ctrl.permissionsClicked()" value="Login Permissions" class="btn btn-primary btn-lg btn-block login-button">
+                    </p>
+                </div>
+            </div>
 
         </div>
-
         <div class="pgright col-xs-3">
         </div>
 

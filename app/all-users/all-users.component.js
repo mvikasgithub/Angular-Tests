@@ -27,7 +27,7 @@ angular.
 
             self.homeClicked = function homeClicked() {
                 window.location = "/#!/home";
-            };
+            }
 
             self.addAsFriendClicked = function addAsFriendClicked(user) {
 
@@ -43,7 +43,7 @@ angular.
                     deferred.resolve(response.data);
                     console.log(response.data);
 
-                    $route.reload()
+                    $route.reload();
 
                 }, function (error) {
                     console.log("inside error in addAsFriendClicked");
@@ -52,8 +52,7 @@ angular.
 
                     deferred.reject(error);
 
-                }
-                );
+                });
                 return deferred.promise;
             }
 
@@ -83,8 +82,8 @@ angular.
                 }
                 );
                 return deferred.promise;
-            }
+            } // end of acceptFriendClicked
 
-        }
+        } // end of AllUsersController
 
-    });
+    }); // end of component

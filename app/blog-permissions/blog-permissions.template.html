@@ -1,0 +1,77 @@
+<div class="fullpage"> {{$ctrl.users.length}}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="#!/login">
+                        <img src="img/niit.png" height="60" width="60" alt="logo" />
+                    </a>
+                    Online Collaboration Student Forum
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pgleft col-xs-3">
+            <p>
+                <input type="button" ng-click="$ctrl.homeClicked()" value="home" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+        </div>
+
+        <div class="pgcenter col-xs-8">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Blogs Awaiting Permission">
+                                <b>Total Blogs Awaiting Permission {{$ctrl.users.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <b> Blog id </b>
+                        </th>
+                        <th>
+                            <b> User name (Requester) </b>
+                        </th>
+                        <th>
+                            <b> Grant Permission </b>
+                        </th>
+                        <th>
+                            <b> Reject Permission </b>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="user in $ctrl.users">
+                        <td >
+                            <b>{{user.phoneno}} </b>
+                        </td>
+                        <td >
+                            <b>{{user.fname}} {{user.sname}}</b>
+                        </td>
+                        <td>
+                            <input type="button" ng-click="$ctrl.grantPermissionClicked(blog)" value="Grant Permission" class="btn btn-primary btn-lg btn-block login-button">
+                        </td>
+                        <td>
+                            <input type="button" ng-click="$ctrl.rejectPermissionClicked(blog)" value="Reject Permission" class="btn btn-primary btn-lg btn-block login-button">
+                        </td>
+                    </tr>
+                    <tr class="well">
+                        <td class="tdRight" colspan="4">
+                            <a href="#" title="Total Blogs Awaiting Permission">
+                                <i class="icon-shopping-cart" />
+                                <b>Total Blogs Awaiting Permission {{$ctrl.users.length}}</b>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
