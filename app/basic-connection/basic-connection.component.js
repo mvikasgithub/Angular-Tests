@@ -28,11 +28,13 @@ angular.
                     self.users = response.data;
                     //console.log(self.users[0].fname);
                     //console.log(self.users[0].sname);
-                    
+
                     console.log("self.currentuser = ");
                     console.log(self.currentuser);
                     console.log(self.currentuser.email);
                 });
+
+                return deferred.promise;
             };
 
             self.allusersClicked = function allusersClicked() {
@@ -49,7 +51,7 @@ angular.
                     self.users = response.data;
                     //console.log(self.users[0].fname);
                     //console.log(self.users[0].sname);
-                    
+
                     console.log("self.currentuser = ");
                     console.log(self.currentuser);
                     console.log(self.currentuser.email);

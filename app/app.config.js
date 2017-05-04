@@ -31,7 +31,9 @@ angular.
                 when('/userblog', {
                     template: '<user-blog></user-blog>',
                 }).
-                when('/blogpermissions', {
+                when('/userchat', {
+                    template: '<user-chat></user-chat>',
+                }).when('/blogpermissions', {
                     template: '<blog-permissions></blog-permissions>',
                 }).when('/login', {
                     template: '<login-user></login-user>',

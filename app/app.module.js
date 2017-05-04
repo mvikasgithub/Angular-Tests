@@ -14,5 +14,7 @@ angular.module('ellianzFE', [
   'allUsers',
   'userAuth',
   'userBlog',
-  'blogPermissions'
+  'blogPermissions',
+  'userChat',
+  'DatashareModule'
 ]);

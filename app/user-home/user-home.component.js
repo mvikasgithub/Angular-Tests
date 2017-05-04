@@ -62,7 +62,14 @@ angular.
                 window.location = "/#!/userblog";
             };
 
+            self.chatClicked = function chatClicked() {
+                self.message = "Chat clicked";
+
+                this.users = [];
+                self.menuoption = 4; // blogs
+
+                window.location = "/#!/userchat";
+            }
         }
 
-
-    });            
+        });            

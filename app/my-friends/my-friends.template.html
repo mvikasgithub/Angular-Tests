@@ -30,11 +30,23 @@
                             </a>
                         </td>
                     </tr>
-                    <tr ng-repeat="user in $ctrl.users ">
+                    <tr>
+                        <th>
+                            <b> Friend </b>
+                        </th>
+                        <th>
+                            <b> Chat </b>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="user in $ctrl.users">
+                        <td >
+                            <b>{{user.fname}} {{user.sname}}</b>
+                        </td>
                         <td>
-                            <a href="#"><b>{{user.fname}} {{user.sname}}</b></a>
+                            <input type="button" ng-click="$ctrl.chatClicked(user)" value="Chat" class="btn btn-primary btn-lg btn-block login-button">
                         </td>
                     </tr>
+                    
                     <tr class="well">
                         <td class="tdRight" colspan="4">
                             <a href="#" title="Total Friends">

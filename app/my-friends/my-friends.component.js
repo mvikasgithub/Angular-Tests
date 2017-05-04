@@ -2,7 +2,7 @@ angular.
     module('myFriends').
     component('myFriends', {
         templateUrl: 'my-friends/my-friends.template.html',
-        controller: function MyFriendsController($http, $q, $window, $rootScope, $location, AuthenticationService) {
+        controller: function MyFriendsController($http, $q, $window, $rootScope, $location, AuthenticationService, DatashareService) {
             var self = this;
 
             self.currentuser = new Object();
@@ -20,9 +20,16 @@ angular.
                 console.log(self.currentuser.email);
             });
 
-                     self.homeClicked = function homeClicked() {
-                        window.location = "/#!/home";
-                     };                         
+            self.homeClicked = function homeClicked() {
+                window.location = "/#!/home";
+            };
+
+            self.chatClicked = function chatClicked(user) {
+                console.log("Saving user for inside chatClicked");
+                console.log(user);
+                DatashareService.saveChatUser(user);
+                window.location = "/#!/userchat";
+            };
 
         }
 

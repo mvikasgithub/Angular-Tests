@@ -1,0 +1,35 @@
+{{$ctrl.chatTargetUser.fname}}
+<div class="fullpage"> {{$ctrl.message}}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="#!/login">
+                        <img src="img/niit.png" height="60" width="60" alt="logo" />
+                    </a>
+                    Online Collaboration Student Forum
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pgleft col-xs-3">
+            <p>
+                <input type="button" ng-click="$ctrl.homeClicked()" value="home" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+        </div>
+
+        <div class="pgcenter col-xs-8">
+            <div class="row">
+                <p> <b>{{$ctrl.currentuser.fname}} </b> chatting with <b> {{$ctrl.chatTargetUser.fname}}: </b> </p>
+                <div class="white-space-pre-line"><pre> {{$ctrl.chat.chatData}} </pre></div>
+                <p> <textarea rows="5" cols="125" ng-model="$ctrl.chatWindowTxt"></textarea> </p>
+                <p>
+                <input type="button" ng-click="$ctrl.sendChatClicked()" value="Send" class="btn btn-primary btn-lg btn-block login-button">
+            </p>
+            </div>
+        </div>
+    </div>
+</div>
